@@ -4,7 +4,6 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\User;
 class HomeController extends Controller
 {
     /**
@@ -26,9 +25,4 @@ class HomeController extends Controller
     {
         return view('home');
     }
-//User::query()
-//->where('name', 'LIKE', "%{$searchTerm}%")
-//   ->orWhere('email', 'LIKE', "%{$searchTerm}%")
-//    ->get();
-
 }
