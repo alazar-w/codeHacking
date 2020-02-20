@@ -22,7 +22,10 @@ Route::get('/admin',function (){
     return view('admin.index');
 });
 
-Route::resource('/admin/users','AdminUsersController');
+Route::get('/admin/users','AdminUsersController@index')->name('admin.users.index');
+Route::get('/admin/users/create','AdminUsersController@create')->name('admin.users.create');
+Route::post('/admin/users/store','AdminUsersController@store')->name('admin.users.store');
+
 
 
 Auth::routes();
