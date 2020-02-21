@@ -25,6 +25,8 @@ Route::get('/admin',function (){
 Route::get('/admin/users','AdminUsersController@index')->name('admin.users.index');
 Route::get('/admin/users/create','AdminUsersController@create')->name('admin.users.create');
 Route::post('/admin/users/store','AdminUsersController@store')->name('admin.users.store');
+Route::get('/admin/users/{user}/edit','AdminUsersController@edit')->name('admin.users.edit');
+Route::put('/admin/users/{user}','AdminUsersController@update')->name('admin.users.update');
 
 
 
