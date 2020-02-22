@@ -30,7 +30,7 @@ class AdminUsersController extends Controller
      */
     public function create()
     {
-        //pluck()-> extract certain column values without loading all the columns.
+        //pluck()-> extract certa   in column values without loading all the columns.
         $roles = Role::get()->pluck('name','id')->all();
         return view('admin.users.create',compact('roles'));
     }
@@ -124,7 +124,7 @@ class AdminUsersController extends Controller
        $user = User::findOrFail($id);
        //to remove our pictures from the images folder in the time of user delation
        unlink(public_path().$user->photo->path);
-
+        $user->delete();
         Session::flash('deleted_user','The user is Deleted');
 
         return redirect('/admin/users');

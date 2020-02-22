@@ -34,6 +34,7 @@ Route::group(['middleware'=>'admin'],function (){
     Route::get('/admin/users/{user}/edit','AdminUsersController@edit')->name('admin.users.edit');
     Route::put('/admin/users/{user}','AdminUsersController@update')->name('admin.users.update');
     Route::delete('/admin/users/{user}','AdminUsersController@destroy');
+
     //post
     Route::get('/admin/posts','AdminPostsController@index')->name('admin.posts.index');
     Route::get('/admin/posts/create','AdminPostsController@create')->name('admin.posts.create');
@@ -41,6 +42,14 @@ Route::group(['middleware'=>'admin'],function (){
     Route::get('/admin/posts/{user}/edit','AdminPostsController@edit')->name('admin.posts.edit');
     Route::put('/admin/posts/{user}','AdminPostsController@update')->name('admin.posts.update');
     Route::delete('/admin/posts/{user}','AdminPostsController@destroy');
+
+    //categories
+    Route::get('/admin/categories','AdminCategoriesController@index')->name('admin.categories.index');
+    Route::get('/admin/categories/create','AdminCategoriesController@create')->name('admin.categories.create');
+    Route::post('/admin/categories/store','AdminCategoriesController@store')->name('admin.categories.store');
+    Route::get('/admin/categories/{user}/edit','AdminCategoriesController@edit')->name('admin.categories.edit');
+    Route::put('/admin/categories/{user}','AdminCategoriesController@update')->name('admin.categories.update');
+    Route::delete('/admin/categories/{user}','AdminCategoriesController@destroy');
 
 });
 
