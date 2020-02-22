@@ -32,7 +32,7 @@ class AdminCategoriesController extends Controller
         return redirect('/admin/categories');
     }
 
-    
+
 
     /**
      * Show the form for editing the specified resource.

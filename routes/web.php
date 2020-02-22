@@ -51,6 +51,13 @@ Route::group(['middleware'=>'admin'],function (){
     Route::put('/admin/categories/{user}','AdminCategoriesController@update')->name('admin.categories.update');
     Route::delete('/admin/categories/{user}','AdminCategoriesController@destroy');
 
+    //media
+    Route::get('/admin/media','AdminMediaController@index')->name('admin.media.index');
+    Route::get('/admin/media/create','AdminMediaController@create')->name('admin.media.create');
+    Route::post('/admin/media/upload','AdminMediaController@upload')->name('admin.media.upload');
+    Route::delete('/admin/media/{user}','AdminMediaController@destroy');
+
+
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
