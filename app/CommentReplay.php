@@ -11,6 +11,7 @@ class CommentReplay extends Model
         'author',
         'email',
         'body',
+        'photo',
         'is_active'
     ];
 

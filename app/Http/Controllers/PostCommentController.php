@@ -42,7 +42,8 @@ class PostCommentController extends Controller
             'post_id' =>$request->post_id,
             'author' =>$user->name,
             'email' =>$user->email,
-            'body' => $request->body
+            'body' => $request->body,
+            'photo'=>$user->photo->path
 
         ];
         Comment::create($data);
@@ -81,7 +82,8 @@ class PostCommentController extends Controller
      */
     public function update(Request $request, $id)
     {
-        //
+        Comment::findOrFail($id)->update($request->all());
+        return redirect('/admin/comments');
     }
 
     /**
@@ -92,6 +94,7 @@ class PostCommentController extends Controller
      */
     public function destroy($id)
     {
-        //
+        Comment::findOrFail($id)->delete();
+        return redirect()->back();
     }
 }

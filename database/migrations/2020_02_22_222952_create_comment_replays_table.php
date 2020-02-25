@@ -20,6 +20,7 @@ class CreateCommentReplaysTable extends Migration
             $table->string('author');
             $table->string('email');
             $table->text('body');
+            $table->string('photo');
             $table->timestamps();
 
             //$table->foreign('comment_id')->references('id')->on('comments')->onDelete('cascade');

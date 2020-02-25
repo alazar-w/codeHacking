@@ -8691,3 +8691,6 @@ table.dataTable thead .sorting:after {
 #admin-page {
   padding-top: 0px;
 }
+.comment-reply{
+  display: none;
+}

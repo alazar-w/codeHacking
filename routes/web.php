@@ -60,6 +60,7 @@ Route::group(['middleware'=>'admin'],function (){
 
     //post comment
     Route::get('/admin/comments','PostCommentController@index')->name('post.comments.index');
+    Route::get('/admin/comments/{post_id}','PostCommentController@show')->name('post.comments.show');
     Route::get('/admin/comments/create','PostCommentController@create')->name('post.comments.create');
     Route::post('/admin/comments/store','PostCommentController@store')->name('post.comments.store');
     Route::get('/admin/comments/{user}/edit','PostCommentController@edit')->name('post.comments.edit');
@@ -78,3 +79,10 @@ Route::group(['middleware'=>'admin'],function (){
 });
 
 Route::get('/home', 'HomeController@index')->name('home');
+
+//gives access to logged in users only
+Route::group(['middleware'=>'auth'],function (){
+
+    Route::post('comment/reply', 'CommentRepliesController@createReplay')->name('home.auth.replay');
+
+});

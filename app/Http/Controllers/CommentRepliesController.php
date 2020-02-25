@@ -2,7 +2,10 @@
 
 namespace App\Http\Controllers;
 
+use App\Comment;
+use App\CommentReplay;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class CommentRepliesController extends Controller
 {
@@ -35,6 +38,21 @@ class CommentRepliesController extends Controller
     public function store(Request $request)
     {
         //
+    }
+    public function createReplay(Request $request)
+    {
+        $user = Auth::user();
+        $data = [
+            'comment_id' =>$request->comment_id,
+            'author' =>$user->name,
+            'email' =>$user->email,
+            'body' => $request->body,
+            'photo'=>$user->photo->path
+
+        ];
+        CommentReplay::create($data);
+        $request->session()->flash('reply_flash','Your reply has been submitted and is waiting moderation');
+        return redirect()->back();
     }
 
     /**
@@ -81,4 +99,5 @@ class CommentRepliesController extends Controller
     {
         //
     }
+
 }

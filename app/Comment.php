@@ -12,11 +12,12 @@ class Comment extends Model
         'author',
         'email',
         'body',
+        'photo',
         'is_active'
     ];
 
     public function replies(){
-        return $this->hasMany('App\CommentReply');
+        return $this->hasMany('App\CommentReplay');
     }
     public function post(){
         return $this->belongsTo('App\Post');

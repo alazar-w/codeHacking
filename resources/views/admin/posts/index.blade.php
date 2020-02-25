@@ -14,6 +14,8 @@
               <th>Photo</th>
             <th>Title</th>
             <th>Body</th>
+              <th>View Post</th>
+            <th>View Comment</th>
             <th>Created</th>
             <th>Updated</th>
           </tr>
@@ -28,6 +30,8 @@
               <td><img src="{{$post->photo?$post->photo->path:'http://via.placeholder.com/640x360'}}" height="40" alt="No Photo"></td>
               <td><a href="{{route('admin.posts.edit',$post->id)}}">{{$post->title}}</a></td>
               <td>{{Str::limit($post->body,10)}}</td>
+              <td><a href="{{route('home.post',$post->id)}}">View Post</a></td>
+              <td><a href="{{route('post.comments.show',$post->id)}}">View Comment</a></td>
               <td>{{$post->created_at->diffForhumans()}}</td>
               <td>{{$post->updated_at->diffForhumans()}}</td>
           </tr>
