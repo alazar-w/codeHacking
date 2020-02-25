@@ -18,6 +18,7 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', 'HomeController@index')->name('home');
+Route::get('/post/{id}', 'AdminPostsController@post')->name('home.post');
 
 
 
@@ -56,6 +57,22 @@ Route::group(['middleware'=>'admin'],function (){
     Route::get('/admin/media/create','AdminMediaController@create')->name('admin.media.create');
     Route::post('/admin/media/upload','AdminMediaController@upload')->name('admin.media.upload');
     Route::delete('/admin/media/{user}','AdminMediaController@destroy');
+
+    //post comment
+    Route::get('/admin/comments','PostCommentController@index')->name('post.comments.index');
+    Route::get('/admin/comments/create','PostCommentController@create')->name('post.comments.create');
+    Route::post('/admin/comments/store','PostCommentController@store')->name('post.comments.store');
+    Route::get('/admin/comments/{user}/edit','PostCommentController@edit')->name('post.comments.edit');
+    Route::put('/admin/comments/{user}','PostCommentController@update')->name('post.comments.update');
+    Route::delete('/admin/comments/{user}','PostCommentController@destroy');
+
+    //post comment replies
+    Route::get('/admin/comments/replies','CommentRepliesController@index')->name('comment.replies.index');
+    Route::get('/admin/comments/replies/create','CommentRepliesController@create')->name('comment.replies.create');
+    Route::post('/admin/comments/replies/store','CommentRepliesController@store')->name('comment.replies.store');
+    Route::get('/admin/comments/replies/{user}/edit','CommentRepliesController@edit')->name('comment.replies.edit');
+    Route::put('/admin/comments/replies/{user}','CommentRepliesController@update')->name('comment.replies.update');
+    Route::delete('/admin/comments/replies/{user}','CommentRepliesController@destroy');
 
 
 });
